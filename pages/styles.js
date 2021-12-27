@@ -1,57 +1,29 @@
 import styled, { keyframes } from "styled-components";
 import colors from "../components/colors";
+import Image from 'next/image';
 
 export const Main = styled.main`
   font-family: "Poppins", sans-serif;
-  height: 100vh;
   width: 100vw;
 
   background-color: ${colors.main};
-  color: ${colors.main};
+  color: ${colors.dark};
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-`;
-
-const wave = keyframes`
-  0% {
-    transform: translateX(-40%);
+  `;
+  
+export const Intro = styled.div`
+  width: 80vw;
+  text-align: left;
+  @media screen and (min-width: 800px) {
+    display: flex;
+    
   }
-
-  50% {
-    text-shadow: 5px 20px 30px rgba(0, 0, 0, .9);
-  }
-
-  100% {
-    transform: translateX(40%);
-  }
-`;
-
-export const Letter = styled.span`
-  animation: ${wave} 3s ease-in-out infinite;
-
-  display: inline-block;
-`;
-
-let delays = "";
-
-for (let i = 2; i <= 7; i++) {
-  delays += `
-    ${Letter}:nth-child(${i}) {
-        animation-delay: ${0.5 * (i - 1)}s;
-    }
-    `;
-}
-
-export const Splash = styled.div`
-  font-size: 3rem;
-  line-height: 1.5;
-  font-weight: bold;
-  letter-spacing: 0.2em;
-
-  ${delays};
+`
+export const Emphasis = styled.span`
+  color: ${colors.accent}
 `;
 
 export const Buttons = styled.div`
@@ -59,6 +31,32 @@ export const Buttons = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+`;
+
+const appear = keyframes`
+  0% {
+    opacity: 0;
+  }
+  96% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1; 
+  }
+`;
+
+export const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  animation: ${appear} 7.5s ease-in-out 0s 1;
+  @media screen and (min-width: 800px) {
+      align-items: center;
+      padding-left: 50px; 
+      padding-top: 50px; 
+    @media screen and (min-width: 1400px) {
+      align-items: end;
+    }
+  }
 `;
 
 export default Main;

@@ -5,18 +5,18 @@ import colors from "./colors";
 const Button = styled.a`
   font-size: 1.2rem;
   font-weight: bold;
-  color: ${colors.light};
+  color: ${colors.dark};
   margin: 2rem;
 
   cursor: pointer;
 
-  border-bottom: 0.1rem solid ${colors.light};
+  border-bottom: 0.1rem solid ${colors.dark};
 
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   &:hover {
     color: ${colors.main};
-    box-shadow: inset 0 -60px 0 0 ${colors.light};
+    box-shadow: inset 0 -60px 0 0 ${colors.dark};
     border-bottom: none;
   }
 `;

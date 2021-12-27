@@ -1,2 +1,2 @@
-const colors = { main: "#5f27cd", light: "#f4abff", accent: "#3BBEAA" };
+const colors = { main: "#e5e5e5", dark: "#14213d", accent: "#4ea8de" };
 export default colors;
