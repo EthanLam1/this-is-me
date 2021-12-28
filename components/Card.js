@@ -28,8 +28,10 @@ const Card = ({ children, style, handleVote, id, top, first, ...props }) => {
     const box = parent.getBoundingClientRect();
 
     if (card.left > box.right) {
+      console.log("swipe right")
       return true;
     } else if (card.right < box.left) {
+      console.log("swipe left")
       return false;
     }
     return undefined;

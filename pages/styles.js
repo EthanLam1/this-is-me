@@ -5,7 +5,6 @@ import Image from 'next/image';
 export const Main = styled.main`
   font-family: "Poppins", sans-serif;
   width: 100vw;
-
   background-color: ${colors.main};
   color: ${colors.dark};
 
@@ -22,6 +21,14 @@ export const Intro = styled.div`
     
   }
 `
+  
+export const Explanation = styled.div`
+  margin-top: 30px;
+  width: 80vw;
+  text-align: left;
+
+`
+
 export const Emphasis = styled.span`
   color: ${colors.accent}
 `;
@@ -37,7 +44,7 @@ const appear = keyframes`
   0% {
     opacity: 0;
   }
-  96% {
+  92% {
     opacity: 0;
   }
   100% {
@@ -45,10 +52,21 @@ const appear = keyframes`
   }
 `;
 
+const flash = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1; 
+  }
+  100% {
+    opacity: 0
+  }
+`;
+
 export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
-  animation: ${appear} 7.5s ease-in-out 0s 1;
   @media screen and (min-width: 800px) {
       align-items: center;
       padding-left: 50px; 
@@ -56,6 +74,21 @@ export const ImageContainer = styled.div`
     @media screen and (min-width: 1400px) {
       align-items: end;
     }
+  }
+`;
+
+export const AppearAnimation = styled.div`
+  animation: ${appear} ${props => props.time? props.time : 0} ease-in-out 0s 1;
+`;
+
+export const ScrollContainer = styled.a`
+  animation: 
+  ${flash} 1s linear 0s infinite,
+  ${appear} ${props => props.time? props.time : 0} ease-in-out 0s 1;
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: 800px) {
+    display: none;
   }
 `;
 

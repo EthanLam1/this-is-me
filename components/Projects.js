@@ -6,7 +6,7 @@ import Stack from "./Stack";
 
 const ProjectsContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 550px;
   display: flex;
   justify-content: center;
 `;
@@ -14,7 +14,7 @@ const ProjectsContainer = styled.div`
 const Item = styled.div`
   background: #fff;
   width: 300px;
-  height: 425px;
+  height: 500px;
 
   display: flex;
 
@@ -39,7 +39,7 @@ const Projects = () => {
   return (
     <ProjectsContainer>
       <Deck handleVote={(item, vote) => console.log(item.props, vote)}>
-        <Item data-value="waffles">🧇</Item>
+        <Item data-value="waffles">Testing Testing one two</Item>
         <Item data-value="pancakes">🥞</Item>
         <Item first data-value="donuts">
           🍩

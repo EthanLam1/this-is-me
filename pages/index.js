@@ -6,7 +6,7 @@ import HeroButton from "../components/HeroButton";
 import Modal from "../components/Modal";
 import Projects from "../components/Projects";
 import About from "../components/About";
-import { Main, Emphasis, Buttons, Intro, Profile, ImageContainer } from "./styles";
+import { Main, Emphasis, Buttons, Intro, Explanation, ImageContainer, ScrollContainer, AppearAnimation} from "./styles";
 
 
 
@@ -52,43 +52,38 @@ export default function Home() {
             <h4>My name's <Emphasis color_num={1}>Ethan</Emphasis>, <Typist.Delay ms={700}/> but I guess if you're here you probably already knew that.</h4>
           
             <Typist.Delay ms={300}/>
-            <h4>Anyway, welcome to my <Emphasis>dating website</Emphasis>. I think it's pretty cool. </h4>
+            <h4>Anyway, welcome to my <Emphasis>dating website</Emphasis>! I think it's pretty cool. </h4>
           </Typist>
-          <ImageContainer>
-            <Image src={"/ethanlam.png"} width={profileWidth} height={profileWidth/0.89} layout={"fixed"}/>
-          </ImageContainer>
+          <AppearAnimation time={"7.9s"}>
+            <ImageContainer>
+              <Image src={"/ethanlam.png"} width={profileWidth} height={profileWidth/0.89} layout={"fixed"}/>
+            </ImageContainer>
+          </AppearAnimation>
           {/* working with images in next is the fucking worst */}
         </Intro>
+        <Explanation id="explanation">
+          <ScrollContainer time={"8.7s"} href="#explanation">
+            <Image src={"/scroll.png"} width={100} height={30}/>
+          </ScrollContainer>
          <Typist
             avgTypingDelay={35}
             stdTypingDelay={7}
             cursor={{
               show: false
             }}
-          >
-            <Typist.Delay ms={8100}/>
-            <h4>Okay. So here's how this is gonna work. I'm gonna show you a profile, and if you like him, swipe right.</h4>
-          
-          </Typist>
-        <Buttons>
-          <HeroButton
-            onClick={() => {
-              setModalState(2);
-            }}
-          >
-            Work
-          </HeroButton>
-        </Buttons>
+            >
+            <Typist.Delay ms={10000}/>
+            <h4>Okay. So here's how this is gonna work. I'm gonna show you a profile, and if you like him, <Emphasis>swipe right</Emphasis> →</h4>
+            <Typist.Delay ms={600}/>
+            <h4>If you don't, no big deal, we have <Emphasis>tons</Emphasis> of options for you to pick from. Just <Emphasis>swipe left</Emphasis> ← and we'll show you someone new, no problem!</h4>
+            <Typist.Delay ms={600}/>
+            <h4>I think that's about it. <Emphasis>Happy swiping!</Emphasis></h4>
 
-        <Modal
-          full={modalState == 1}
-          open={modalState}
-          handleClose={() => {
-            setModalState(0);
-          }}
-        >
-          {pages[modalState]}
-        </Modal>
+          </Typist>
+        </Explanation>
+        <AppearAnimation time={"22s"}>
+          <Projects></Projects>
+        </AppearAnimation>
       </Main>
     </div>
   );
